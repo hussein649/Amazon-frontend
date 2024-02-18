@@ -1,0 +1,33 @@
+.contanair{
+    background-color: #efeeee;
+    padding: 10px;
+   
+
+}
+.orders_container{
+    background-color: #fff;
+    /* padding: 10px; */
+ 
+
+
+}
+
+.orders_container h2{
+    border-bottom: 2x solid var(--primay-shade);
+    padding: 10px;
+}
+.orders_container hr{
+    color: 4x solid var(--primay-shade);
+}
+.orders_container p{
+    padding: 12px;
+    font-family: Arial;
+    font-size: bold;
+    color: rgb(121, 126, 80);
+}
+.orders_container img {
+    width: 100px !important;
+}
+.orders_container div{
+    height: auto !important;
+}

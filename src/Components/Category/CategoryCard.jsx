@@ -1,18 +1,20 @@
-
-import React from 'react'
-import classes from './Category.module.css'
-const CategoryCard = (props) => {
+import React from "react";
+import classes from "./Category.module.css";
+import { Link } from "react-router-dom";
+const CategoryCard = ({ data }) => {
+  // console.log(data.imgLink)
   return (
-    <div className={classes.category}>
-      <a href="">
+    <div className={classes.category} >
+      <Link to={`category/${data?.name}`}>
         <span>
-          <h2>{props.title}</h2>
+          <h2>{data?.title}</h2>
+          
         </span>
-        <img src={props.imgLink} alt="" />
+        <img src={data?.imgLink} alt="" />
         <p>Shop now</p>
-      </a>
+      </Link>
     </div>
   );
-}
+};
 
-export default CategoryCard
+export default CategoryCard;

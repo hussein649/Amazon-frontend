@@ -1,0 +1,138 @@
+.footer__container {
+    padding: 30px;
+    background-color:#232F3E;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: serif;
+}
+.footer__container ul li{
+    font-size: 12px;
+    padding: 3px;
+    font-family: serif;
+    color:#919195;
+
+   
+}
+.footer__container ul li:hover{
+text-decoration: underline;
+}
+.footer__container p{
+    font-size: bold 16px;
+}
+.footer__container ul{
+    list-style: none;
+    margin-left: 10px;
+
+}
+
+.footer__list {
+      background-color:#232F3E;
+      color: white;
+      display: flex;
+  justify-content: center;
+    padding:10px; 
+
+}
+.footer__list div{
+    margin-left: 5dvh;
+}
+.details div {
+    display: flex;
+}
+
+.details p{
+      border: 1px solid white;
+    margin: 10px;
+    align-items: center;
+padding: 5px;
+}
+.globe{
+   border: 1px solid white;
+   margin: 10px;
+padding-bottom: 0;
+}
+.footer__list img{
+    width: 15vh;
+margin-right: 0px !important;
+  
+
+}
+.language{
+    padding-top: 10px;
+}
+.language ul{
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    border: 1px solid white;
+    padding: 5px;
+  
+}
+.language ul li{
+     text-decoration: none;}
+.language img{
+  
+   width: 4vh;
+  
+}
+.details{
+display: flex;
+}
+.bottom__container{
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    padding: 20px;
+    
+}
+.bottom__list{
+    justify-content: space-around;
+    margin: 0 20px;
+
+}
+.bottom__list div:hover{
+ cursor: pointer;
+ text-decoration: underline;
+ color: #919195;
+}
+.bottom__list div {
+padding: 10px ;
+
+}
+.bottom__list p{
+    font-size:  12px;
+    color:white;
+}
+.bottom__list li{
+    font-size: 12px;
+    color: #919195;
+    list-style: none;
+}
+.copyright{
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    
+}
+.copyright div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.copyright image{
+    width: 100vh;
+}
+.copyright ul{
+    display: flex;
+    
+}
+.copyright li{
+    padding: 10px;
+    list-style: none;
+}
+.copyright p{
+    text-align: center;
+    padding-bottom: 20px;
+}

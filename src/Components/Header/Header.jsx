@@ -1,19 +1,29 @@
-import React from "react";
-import classes from "./Header.module.css"
+import React, { useContext} from "react";
+import classes from "./Header.module.css";
 import { BsSearch } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
+import { Link } from "react-router-dom";
+import { DataContext } from "../DataProvider/DataProvider";
+import {auth} from '../../Utility/firebase'
 const Header = () => {
+  const [{user, basket }, dispatch] = useContext(DataContext)
+   const totalItem = basket?.reduce((amount,item)=>{
+  return item.amount + amount
+  },0)
+
+  // console.log(basket.length);
+ 
   return (
-    <>
+    <section className={classes.fixed}>
       <section>
         <div className={classes.header__container}>
           {/* logo section*/}
           <div className={classes.logo__container}>
-            <a href="#">
+            <Link to="/">
               <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
-            </a>
+            </Link>
 
             <div className={classes.delivery}>
               <span>{<SlLocationPin />}</span>
@@ -30,13 +40,13 @@ const Header = () => {
               <option value="">All</option>
             </select>
             <input type="text" name="" id="" placeholder="search product" />
-            {<BsSearch size={25} />}
+            {<BsSearch size={38} />}
           </div>
 
           {/* other section*/}
           <div className={classes.order__container}>
             <div>
-              <a href="" className={classes.language}>
+              <Link to="" className={classes.language}>
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png"
                   alt=""
@@ -44,41 +54,50 @@ const Header = () => {
                 <select>
                   <option value="">EN</option>
                 </select>
-              </a>
+              </Link>
             </div>
             {/* three components*/}
             <div className={classes.customer__container}>
               <div className={classes.account}>
-                <a href="">
+                <Link to={!user && "/auth"}>
                   <div>
-                    <p>Hello,Sign In</p>
-                    <span>Account & Lists</span>
+                    {user ? (
+                      <>
+                        <p>Hello,{user?.email?.split("@")[0]}</p>
+                        <span onClick={()=>auth.signOut()}>Sign Out</span>
+                      </>
+                    ) : (
+                      <>
+                        <p>Hello,Sign In</p>
+                        <span>Account & Lists</span>
+                      </>
+                    )}
                   </div>
-                </a>
+                </Link>
               </div>
               {/* orders */}
               <div className={classes.return__order}>
-                <a href="">
+                <Link to="/orders">
                   <p>Returns</p>
                   <span>& Orders</span>
-                </a>
+                </Link>
               </div>
               {/* cart*/}
               <div className={classes.cart}>
-                <a href="">
+                <Link to="/cart">
                   {<BiCart size={35} />}
                   <p>Cart</p>
-                  <span>0</span>
-                </a>
+                  <span>{totalItem}</span>
+                </Link>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <LowerHeader/>
+          <LowerHeader />
         </div>
       </section>
-    </>
+    </section>
   );
 };
 
